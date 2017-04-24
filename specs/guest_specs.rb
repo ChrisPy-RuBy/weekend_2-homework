@@ -6,7 +6,7 @@ class TestGuest < Minitest::Test
 
 def setup
 
-  @guest1 = Guest.new("name", 10 )
+  @guest1 = Guest.new("name", 50 )
   @guest2 = Guest.new("Alix", 10 )
   @guest3 = Guest.new("Chris",10 )
   @guest4 = Guest.new("Jack", 10 )
@@ -33,5 +33,15 @@ end
   guest = Guest.new("Mary", 10)
   assert_equal("Mary", guest.guest_name)  
   end
+
+  def test_guest_amount_of_money
+    assert_equal(50, @guest1.money)
+  end
+
+  # def test_charge_guest_for_singing
+  #   assert_equal(0, @guest1.charged)
+  # end
+
+
 
 end

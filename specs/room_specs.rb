@@ -10,6 +10,8 @@ class TestClass < Minitest::Test
   def setup
     @room1 = Room.new(1, "no song", "empty", 6, 50)
 
+    @rich_pete = Guest.new("pete", 100)
+
   end
 
   def test_room_class_exists
@@ -137,30 +139,65 @@ class TestClass < Minitest::Test
   end
 
   def test_cost_per_guest_test_1
-      @room1.add_guest_to_the_room(@guest1)
-      assert_equal(1, @room1.number_of_guests)
-      assert_equal(50, @room1.cost_per_guest)
+    @room1.add_guest_to_the_room(@guest1)
+    assert_equal(1, @room1.number_of_guests)
+    assert_equal(50, @room1.cost_per_guest)
   end
 
   def test_cost_per_guest_test_2
-      @room1.add_guest_to_the_room(@guest1)
-      @room1.add_guest_to_the_room(@guest2)
-      @room1.add_guest_to_the_room(@guest3)
-      @room1.add_guest_to_the_room(@guest4)
-      @room1.add_guest_to_the_room(@guest5)
-      assert_equal(5, @room1.number_of_guests)
-      assert_equal(10, @room1.cost_per_guest)
+    @room1.add_guest_to_the_room(@guest1)
+    @room1.add_guest_to_the_room(@guest2)
+    @room1.add_guest_to_the_room(@guest3)
+    @room1.add_guest_to_the_room(@guest4)
+    @room1.add_guest_to_the_room(@guest5)
+    assert_equal(5, @room1.number_of_guests)
+    assert_equal(10, @room1.cost_per_guest)
   end
 
-  # def test_charge_per_person_in_group
-  #     @room1.add_guest_to_the_room(@guest1)
-  #     @room1.cost_per_guest
-  #     assert_equal(0, @room1.guest_pays)
+  def test_first_guest_in_room_name
+    @room1.add_guest_to_the_room(@guest1)
+    assert_equal("name", @room1.name_of_guest_in_room)
+  end
+  # def test_money_for_specific_guest
+  #   assert_equal(100, @rich_pete.money)
   # end
 
+# def test_adding_and_subtracting_money_from_guest
+#   @room1.subtract_money_from_guest(@room1.cost, @rich_pete.money)
+#   assert_equal(50, @rich_pete.money)
+# end
 
-  def test_check_guest_array()
-   check_guest_array
-  end
+
+
+ # def test_adding_and_subtracting_money_from_guest
+ #   @rich_pete.subtract_money_from_guest(@rich_pete.money)
+ #   assert_equal(50, @rich_pete.money)
+ # end
+
 end
+
+
+
+
+
+  # def test_total_money_individual_guest_has
+  #     @room1.add_guest_to_the_room(@guest1)
+  #     assert_equal(1, @room1.number_of_guests)
+  #     assert_equal(50,@room1.check_amount_of_money_guest_has(@guest1))
+  # end
+
+  # def test_charge_per_person_in_group
+  #      @room1.add_guest_to_the_room(@guest1)
+  #      assert_equal(1, @room1.number_of_guests)
+  #      @room1.cost_per_guest
+  #      assert_equal(50, @room1.cost_per_guest)
+  #      assert_equal(0, @room1.guest_pays)
+  # # end
+
+  # def test_money_guest_has
+
+  # # def test_check_guest_array()
+  # #  check_guest_array
+  # # end
+#end
 

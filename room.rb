@@ -12,6 +12,8 @@ class Room
     @maximum_capacity = maximum_capacity
     @cost = cost
 
+
+
   end
 
 
@@ -47,7 +49,7 @@ def maximum_capacity_of_the_room
   return @maximum_capacity
 end
 
-def check_room_occupation_and_capacity()
+def check_room_occupation_and_capacity() #could edit this to pop people out if there are too many until  it is at capacity again
   if @maximum_capacity == @guests_in_room.count()
     return "At capacity"
   elsif @maximum_capacity >= @guests_in_room.count()
@@ -61,8 +63,20 @@ def cost_per_guest()
  return @cost / @guests_in_room.count()
 end
 
-def check_guest_array()
-  puts"---------------------------------#{guests_in_room.inspect}"
+def name_of_guest_in_room
+  return @guests_in_the_room[0].guest_name
 end
+
+#  def guest_money(name)
+#   name.money
+# end
+
+# def subtract_money_from_guest(guest_money)
+#    guest_money -= 50
+# end
+  # 
+# end 
+  
+
 
 end

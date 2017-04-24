@@ -9,6 +9,9 @@ def initialize(guest_name, money)
 
 end
 
+# def charged(charge)
+#   @money -= charge
+# end
 
 
 
